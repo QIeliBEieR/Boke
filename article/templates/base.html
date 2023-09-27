@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block tittle %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link href="//cdn.staticfile.org/layui/2.8.11/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/md_css/native.css' %}">
+</head>
+<body>
+    <!-- 引入导航栏-->
+    {% include 'header.html'%}
+
+    <!-- 页面主体-->
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- 引入页脚-->
+    {% include 'footer.html' %}
+    <script src="//cdn.staticfile.org/layui/2.8.11/layui.js"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- 引入layer.js -->
+
+{#    <script src="{% static 'js/layui.js' %}"></script>#}
+</body>
+</html>

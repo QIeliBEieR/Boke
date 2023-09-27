@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div id="Login-box">
+      <h2 style="color: rgb(255, 255, 255);">请登录</h2>
+      <div class="form">
+        <form name="Form" onsubmit="return validateForm()" method="POST">
+          {% csrf_token %}
+          <div class="item">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <input type="text" placeholder="邮箱" id="username" name="username" />
+          </div>
+          <div class="item">
+            <i class="fa fa-key" aria-hidden="true"></i>
+            <input type="password" placeholder="密码" id="password" name="password" />
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+
+     <div style="display: flex; align-items: center; justify-content: flex-end;">
+        <div id="forget_pwd"><pre><a href="{% url 'password_reset_recover' %}" style="color: yellowgreen">忘记密码？&nbsp;</a></pre></div>
+        <br>
+        <div id="Register"><pre><a href="{% url 'userprofile:register'%}" style="color: yellowgreen;">注册</a></pre></div>
+     </div>
+    </div>
+</body>
+</html>
